@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">KlikChat</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="klik_chat_business">Klik Chat Business</string>
+</resources>

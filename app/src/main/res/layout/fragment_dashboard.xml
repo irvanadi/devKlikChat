@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".DashboardFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardTProgress"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="32dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideNewTicket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.15" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideTicketDone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.85" />
+
+                    <ImageView
+                        android:id="@+id/imgOnProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/ic_access_time_black_24dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtCountOnProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="0"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintEnd_toEndOf="@id/imgOnProgress"
+                        app:layout_constraintStart_toStartOf="@id/imgOnProgress"
+                        app:layout_constraintTop_toBottomOf="@id/imgOnProgress" />
+
+                    <TextView
+                        android:id="@+id/txtOnProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@android:color/black"
+                        android:text="Ticket On \nProgress"
+                        app:layout_constraintEnd_toEndOf="@id/imgOnProgress"
+                        app:layout_constraintStart_toStartOf="@id/imgOnProgress"
+                        app:layout_constraintTop_toBottomOf="@id/txtCountOnProgress" />
+
+                    <ImageView
+                        android:id="@+id/imgNewTicket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/ic_notifications_active_black_24dp"
+                        app:layout_constraintEnd_toEndOf="@id/guideNewTicket"
+                        app:layout_constraintStart_toStartOf="@id/guideNewTicket"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtCountNewTicket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="0"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="@id/imgNewTicket"
+                        app:layout_constraintStart_toStartOf="@id/imgNewTicket"
+                        app:layout_constraintTop_toBottomOf="@id/imgNewTicket" />
+
+                    <TextView
+                        android:id="@+id/txtNewTicket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="New Ticket"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintEnd_toEndOf="@id/imgNewTicket"
+                        app:layout_constraintStart_toStartOf="@id/imgNewTicket"
+                        app:layout_constraintTop_toBottomOf="@id/txtCountNewTicket" />
+
+                    <ImageView
+                        android:id="@+id/imgTicketDone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/ic_done_black_24dp"
+                        app:layout_constraintEnd_toEndOf="@id/guideTicketDone"
+                        app:layout_constraintStart_toStartOf="@id/guideTicketDone"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtCountTicketDone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="0"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintEnd_toEndOf="@id/guideTicketDone"
+                        app:layout_constraintStart_toStartOf="@id/guideTicketDone"
+                        app:layout_constraintTop_toBottomOf="@id/imgTicketDone" />
+
+                    <TextView
+                        android:id="@+id/txtTicketDone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Ticket Done"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintEnd_toEndOf="@id/imgTicketDone"
+                        app:layout_constraintStart_toStartOf="@id/imgTicketDone"
+                        app:layout_constraintTop_toBottomOf="@id/txtCountTicketDone" />
+
+                    <Button
+                        android:id="@+id/btnShowDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:background="@drawable/btnrounded"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginStart="32dp"
+                        android:text="Show Detail"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        app:layout_constraintTop_toBottomOf="@id/txtOnProgress"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btnShowChart"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/btnrounded"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="32dp"
+                android:text="Show Chart"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/colorPrimaryDark"
+                app:layout_constraintTop_toBottomOf="@id/cardTProgress"/>
+
+            <ImageButton
+                android:id="@+id/btnCompany"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/icon_round"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/ic_company"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintTop_toBottomOf="@id/btnShowChart"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnDivision"
+                />
+
+            <TextView
+                android:id="@+id/txtCompany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Company \nProfile"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintTop_toBottomOf="@id/btnCompany"
+                app:layout_constraintStart_toStartOf="@id/btnCompany"
+                app:layout_constraintEnd_toEndOf="@id/btnCompany"/>
+
+            <ImageButton
+                android:id="@+id/btnDivision"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/icon_round"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/ic_division"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintTop_toBottomOf="@id/btnShowChart"
+                app:layout_constraintStart_toEndOf="@id/btnCompany"
+                app:layout_constraintEnd_toStartOf="@id/btnUser"
+                />
+
+            <TextView
+                android:id="@+id/txtDivision"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Division"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintTop_toBottomOf="@id/btnDivision"
+                app:layout_constraintStart_toStartOf="@id/btnDivision"
+                app:layout_constraintEnd_toEndOf="@id/btnDivision"/>
+
+            <ImageButton
+                android:id="@+id/btnUser"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/icon_round"
+                android:layout_marginTop="32dp"
+                app:layout_constraintHorizontal_weight="1"
+                android:src="@drawable/ic_user"
+                app:layout_constraintTop_toBottomOf="@id/btnShowChart"
+                app:layout_constraintStart_toEndOf="@id/btnDivision"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/txtUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintTop_toBottomOf="@id/btnUser"
+                app:layout_constraintStart_toStartOf="@id/btnUser"
+                app:layout_constraintEnd_toEndOf="@id/btnUser"/>
+
+            <ImageButton
+                android:id="@+id/btnFAQ"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/icon_round"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/ic_faq"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintTop_toBottomOf="@id/txtCompany"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnDivision"
+                />
+
+            <TextView
+                android:id="@+id/txtFAQ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FAQ"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintTop_toBottomOf="@id/btnFAQ"
+                app:layout_constraintStart_toStartOf="@id/btnFAQ"
+                app:layout_constraintEnd_toEndOf="@id/btnFAQ"/>
+
+            <ImageButton
+                android:id="@+id/btnTicket"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/icon_round"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/ic_ticket"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintTop_toBottomOf="@id/txtCompany"
+                app:layout_constraintStart_toEndOf="@id/btnCompany"
+                app:layout_constraintEnd_toStartOf="@id/btnUser"
+                />
+
+            <TextView
+                android:id="@+id/txtTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ticket"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintTop_toBottomOf="@id/btnTicket"
+                app:layout_constraintStart_toStartOf="@id/btnTicket"
+                app:layout_constraintEnd_toEndOf="@id/btnTicket"/>
+
+            <ImageButton
+                android:id="@+id/btnBroadcast"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="@drawable/icon_round"
+                android:layout_marginTop="32dp"
+                app:layout_constraintHorizontal_weight="1"
+                android:src="@drawable/ic_broadcast"
+                app:layout_constraintTop_toBottomOf="@id/txtCompany"
+                app:layout_constraintStart_toEndOf="@id/btnDivision"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/txtBroadcast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Broadcast"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintTop_toBottomOf="@id/btnBroadcast"
+                app:layout_constraintStart_toStartOf="@id/btnBroadcast"
+                app:layout_constraintEnd_toEndOf="@id/btnBroadcast"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</FrameLayout>
