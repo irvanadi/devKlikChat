@@ -4,31 +4,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ProfileFragment">
+    tools:context=".Main.Company.ProfileFragment">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
 
         <TextView
             android:id="@+id/txtCompany"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="32dp"
-            android:text="Company Name"/>
+            android:layout_marginTop="24dp"
+            android:text="Company Name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtInputEmail"
+            android:id="@+id/txtInputCompany"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/edit_text_rounded"
             app:hintEnabled="false"
-            android:layout_alignTop="@id/txtCompany">
+            app:layout_constraintTop_toBottomOf="@id/txtCompany"
+            >
 
             <EditText
                 android:id="@+id/edEmail"
@@ -36,7 +37,7 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:gravity="center_vertical"
-                android:hint="Email"
+                android:hint="Company Name"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:paddingStart="8dp"
@@ -50,37 +51,44 @@
             android:id="@+id/txtAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="32dp"
-            android:text="Company Name"/>
+            android:layout_marginTop="24dp"
+            android:text="Address"
+            app:layout_constraintTop_toBottomOf="@id/txtInputCompany"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtInputEmail"
+            android:id="@+id/txtInputAddress"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/edit_text_rounded"
             app:hintEnabled="false"
-            android:layout_alignTop="@id/txtCompany">
+            app:layout_constraintTop_toBottomOf="@id/txtAddress">
 
             <EditText
-                android:id="@+id/edEmail"
+                android:id="@+id/edAddress"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
-                android:gravity="center_vertical"
-                android:hint="Email"
+                android:gravity="top"
+                android:hint="Company Address"
                 android:inputType="textEmailAddress"
-                android:maxLines="1"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 android:singleLine="true"
+                android:paddingTop="4dp"
                 android:textAlignment="gravity" />
-
         </com.google.android.material.textfield.TextInputLayout>
 
-    </RelativeLayout>
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Save"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintTop_toBottomOf="@id/txtInputAddress"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

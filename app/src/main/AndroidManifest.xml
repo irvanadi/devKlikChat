@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CompanyActivity"></activity>
-        <activity android:name=".TicketActivity" />
+        <activity android:name=".Main.User.UserActivity"></activity>
+        <activity android:name=".Main.Division.DivisionActivity" />
+        <activity android:name=".Main.FAQ.FAQActivity" />
+        <activity android:name=".Main.Company.CompanyActivity" />
+        <activity android:name=".Main.Ticket.TicketActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -22,7 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".Main.MainActivity" />
     </application>
 
 </manifest>

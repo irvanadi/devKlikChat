@@ -9,6 +9,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.xeylyne.klikchat.Main.MainActivity;
+import com.xeylyne.klikchat.Response.Message;
+import com.xeylyne.klikchat.Utilities.RetrofitInstance;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

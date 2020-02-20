@@ -1,22 +1,33 @@
-package com.xeylyne.klikchat;
+package com.xeylyne.klikchat.Response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Message {
 
+    @SerializedName("user_token")
+    @Expose
+    private String userToken;
     @SerializedName("code")
     @Expose
-    private int code;
+    private Integer code;
     @SerializedName("message")
     @Expose
     private String message;
 
-    public int getCode() {
+    public String getUserToken() {
+        return userToken;
+    }
+
+    public void setUserToken(String userToken) {
+        this.userToken = userToken;
+    }
+
+    public Integer getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
 

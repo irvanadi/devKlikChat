@@ -1,4 +1,7 @@
-package com.xeylyne.klikchat;
+package com.xeylyne.klikchat.APIPackage;
+
+import com.xeylyne.klikchat.Request.RequestUser;
+import com.xeylyne.klikchat.Response.Message;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -18,4 +21,11 @@ public interface APIPackage {
     @POST("login/")
     Call<Message> Login(@Field("email") String email,
                         @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("method/user/index")
+    Call<RequestUser> getUser(@Field("user_token") String user_token,
+                              @Field("length") String length,
+                              @Field("column") String column,
+                              @Field("dir") String dir);
 }

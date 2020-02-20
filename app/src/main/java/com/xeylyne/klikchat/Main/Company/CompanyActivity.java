@@ -1,4 +1,4 @@
-package com.xeylyne.klikchat;
+package com.xeylyne.klikchat.Main.Company;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.android.material.tabs.TabLayout;
+import com.xeylyne.klikchat.Adapter.PagerAdapter;
+import com.xeylyne.klikchat.R;
 
 public class CompanyActivity extends AppCompatActivity {
 

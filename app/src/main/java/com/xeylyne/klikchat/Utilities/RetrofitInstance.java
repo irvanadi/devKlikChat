@@ -1,4 +1,6 @@
-package com.xeylyne.klikchat;
+package com.xeylyne.klikchat.Utilities;
+
+import com.xeylyne.klikchat.APIPackage.APIPackage;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

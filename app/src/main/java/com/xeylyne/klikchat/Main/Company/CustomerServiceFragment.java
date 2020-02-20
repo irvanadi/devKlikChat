@@ -1,4 +1,4 @@
-package com.xeylyne.klikchat;
+package com.xeylyne.klikchat.Main.Company;
 
 
 import android.os.Bundle;
@@ -9,11 +9,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class DivisionFragment extends Fragment {
+import com.xeylyne.klikchat.R;
 
 
-    public DivisionFragment() {
-        // Required empty public constructor
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class CustomerServiceFragment extends Fragment {
+
+
+    public static CustomerServiceFragment newInstance() {
+        return new CustomerServiceFragment();
     }
 
 
@@ -21,7 +27,7 @@ public class DivisionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_division, container, false);
+        return inflater.inflate(R.layout.fragment_customer, container, false);
     }
 
 }

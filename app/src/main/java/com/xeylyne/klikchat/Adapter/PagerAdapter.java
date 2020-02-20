@@ -1,4 +1,4 @@
-package com.xeylyne.klikchat;
+package com.xeylyne.klikchat.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

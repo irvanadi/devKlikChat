@@ -1,15 +1,15 @@
-package com.xeylyne.klikchat;
+package com.xeylyne.klikchat.Main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.BottomNavigationView.OnNavigationItemSelectedListener;
+import com.xeylyne.klikchat.R;
 
 public class MainActivity extends AppCompatActivity implements OnNavigationItemSelectedListener {
 

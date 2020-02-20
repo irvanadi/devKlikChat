@@ -1,4 +1,4 @@
-package com.xeylyne.klikchat;
+package com.xeylyne.klikchat.Main;
 
 
 import android.content.Intent;
@@ -9,6 +9,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.xeylyne.klikchat.Main.Company.CompanyActivity;
+import com.xeylyne.klikchat.R;
+import com.xeylyne.klikchat.Main.Ticket.TicketActivity;
 
 
 /**
