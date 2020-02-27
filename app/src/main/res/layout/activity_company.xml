@@ -53,7 +53,6 @@
         </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
