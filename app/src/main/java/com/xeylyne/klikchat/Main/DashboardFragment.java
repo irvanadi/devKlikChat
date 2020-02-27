@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.xeylyne.klikchat.Main.Company.CompanyActivity;
+import com.xeylyne.klikchat.Main.User.UserActivity;
 import com.xeylyne.klikchat.R;
 import com.xeylyne.klikchat.Main.Ticket.TicketActivity;
 
@@ -44,6 +45,14 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), CompanyActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        view.findViewById(R.id.btnUser).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), UserActivity.class);
                 startActivity(intent);
             }
         });

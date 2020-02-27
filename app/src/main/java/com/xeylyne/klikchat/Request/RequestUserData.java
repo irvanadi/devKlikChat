@@ -2,13 +2,13 @@ package com.xeylyne.klikchat.Request;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.xeylyne.klikchat.Response.ResponseUser;
 import com.xeylyne.klikchat.Response.ResponseUserData;
 
-public class RequestUser {
+public class RequestUserData {
+
     @SerializedName("user")
     @Expose
-    private ResponseUser user;
+    private ResponseUserData user;
     @SerializedName("code")
     @Expose
     private Integer code;
@@ -16,11 +16,11 @@ public class RequestUser {
     @Expose
     private String message;
 
-    public ResponseUser getUser() {
+    public ResponseUserData getUser() {
         return user;
     }
 
-    public void setUser(ResponseUser user) {
+    public void setUser(ResponseUserData user) {
         this.user = user;
     }
 
@@ -39,4 +39,5 @@ public class RequestUser {
     public void setMessage(String message) {
         this.message = message;
     }
+
 }

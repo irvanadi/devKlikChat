@@ -5,9 +5,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.xeylyne.klikchat.R;
 import com.xeylyne.klikchat.Request.RequestUser;
+import com.xeylyne.klikchat.Request.RequestUserData;
 import com.xeylyne.klikchat.Response.ResponseUser;
 import com.xeylyne.klikchat.Response.ResponseUserData;
 import com.xeylyne.klikchat.Utilities.RecyclerViewInstance;
@@ -43,18 +46,17 @@ public class UserActivity extends AppCompatActivity {
 
         SharedPreferences retrieveToken = getSharedPreferences("token", MODE_PRIVATE);
         String Token = retrieveToken.getString("token", "isNull");
-        Call<RequestUser> call = RetrofitInstance.getInstance().getUser(Token, "10", "0", "ASC");
-        call.enqueue(new Callback<RequestUser>() {
+        Log.d("Token", "LoadDataUser: " + Token);
+        Call<RequestUserData> call = RetrofitInstance.getInstance().getUser(Token, "10", "0", "ASC");
+        call.enqueue(new Callback<RequestUserData>() {
             @Override
-            public void onResponse(Call<RequestUser> call, Response<RequestUser> response) {
-                if (response.body().getCode() == 200){
-
-                }
+            public void onResponse(Call<RequestUserData> call, Response<RequestUserData> response) {
+                Log.d("Succ1", "onResponse: " + response.message());
             }
 
             @Override
-            public void onFailure(Call<RequestUser> call, Throwable t) {
-
+            public void onFailure(Call<RequestUserData> call, Throwable t) {
+                Log.d("Err", "onFailure: " + t.getMessage());
             }
         });
     }

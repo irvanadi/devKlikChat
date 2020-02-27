@@ -48,10 +48,10 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
             case R.id.menu_chat:
                 loadFragment(new DashboardFragment());
                 break;
-//
-//            case R.id.menu_settings:
-//                loadFragment(new DashboardFragment());
-//                return true;
+
+            case R.id.menu_settings:
+                loadFragment(new DashboardFragment());
+                return true;
         }
 
         return loadFragment(fragment);
