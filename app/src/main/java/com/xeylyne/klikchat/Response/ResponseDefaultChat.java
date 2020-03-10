@@ -1,0 +1,75 @@
+package com.xeylyne.klikchat.Response;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+public class ResponseDefaultChat {
+
+    @SerializedName("uuid")
+    @Expose
+    private String uuid;
+    @SerializedName("company_uuid")
+    @Expose
+    private String companyUuid;
+    @SerializedName("text")
+    @Expose
+    private String text;
+    @SerializedName("updated_at")
+    @Expose
+    private String updatedAt;
+    @SerializedName("created_at")
+    @Expose
+    private String createdAt;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public String getCompanyUuid() {
+        return companyUuid;
+    }
+
+    public void setCompanyUuid(String companyUuid) {
+        this.companyUuid = companyUuid;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+}

@@ -1,6 +1,7 @@
 package com.xeylyne.klikchat.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,17 +10,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.xeylyne.klikchat.Main.User.EditUserActivity;
 import com.xeylyne.klikchat.R;
 import com.xeylyne.klikchat.Response.ResponseUserData;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     Context context;
-    ArrayList<ResponseUserData> responseUserData;
+    List<ResponseUserData> responseUserData;
 
-    public UserAdapter(Context context, ArrayList<ResponseUserData> responseUserData) {
+    public UserAdapter(Context context, List<ResponseUserData> responseUserData) {
         this.context = context;
         this.responseUserData = responseUserData;
     }
@@ -34,10 +37,24 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ResponseUserData result = responseUserData.get(position);
-        holder.txtName.setText(result.getName());
-        holder.txtDivision.setText(result.getDivision().getName());
-        holder.txtRole.setText(result.getUserType().getName());
+        final ResponseUserData result = responseUserData.get(position);
+        holder.txtName.setText(": " + result.getName());
+        holder.txtDivision.setText(": " + result.getDivision().getName());
+        holder.txtRole.setText(": " + result.getUserType().getName());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, EditUserActivity.class);
+                intent.putExtra("name", result.getName());
+                intent.putExtra("phonenumber", result.getNumber());
+                intent.putExtra("email", result.getEmail());
+                intent.putExtra("division", result.getDivisionId());
+                intent.putExtra("usertype", result.getUserTypeId());
+                intent.putExtra("address", result.getAddress());
+                intent.putExtra("id_user", result.getId());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

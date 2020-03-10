@@ -2,6 +2,7 @@ package com.xeylyne.klikchat.Main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
@@ -10,10 +11,12 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.BottomNavigationView.OnNavigationItemSelectedListener;
 import com.xeylyne.klikchat.R;
+import com.xeylyne.klikchat.SettingFragment;
 
 public class MainActivity extends AppCompatActivity implements OnNavigationItemSelectedListener {
 
     BottomNavigationView bottomNavigationView;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,9 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottomNavMain);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
+
+        toolbar = findViewById(R.id.Toolbar);
+        setSupportActionBar(toolbar);
 
         loadFragment(new DashboardFragment());
     }
@@ -50,10 +56,9 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
                 break;
 
             case R.id.menu_settings:
-                loadFragment(new DashboardFragment());
+                loadFragment(new SettingFragment());
                 return true;
         }
-
         return loadFragment(fragment);
     }
 }

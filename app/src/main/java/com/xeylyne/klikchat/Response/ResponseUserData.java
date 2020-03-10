@@ -64,10 +64,10 @@ public class ResponseUserData {
     private Object deletedAt;
     @SerializedName("company")
     @Expose
-    private ResponseUserCompany company;
+    private ResponseCompany company;
     @SerializedName("division")
     @Expose
-    private ResponseUserDivision division;
+    private ResponseDivision division;
     @SerializedName("user_type")
     @Expose
     private ResponseUserUserType userType;
@@ -224,19 +224,19 @@ public class ResponseUserData {
         this.deletedAt = deletedAt;
     }
 
-    public ResponseUserCompany getCompany() {
+    public ResponseCompany getCompany() {
         return company;
     }
 
-    public void setCompany(ResponseUserCompany company) {
+    public void setCompany(ResponseCompany company) {
         this.company = company;
     }
 
-    public ResponseUserDivision getDivision() {
+    public ResponseDivision getDivision() {
         return division;
     }
 
-    public void setDivision(ResponseUserDivision division) {
+    public void setDivision(ResponseDivision division) {
         this.division = division;
     }
 

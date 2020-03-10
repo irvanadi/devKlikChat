@@ -3,6 +3,7 @@ package com.xeylyne.klikchat;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,7 +11,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.xeylyne.klikchat.Main.MainActivity;
+import com.xeylyne.klikchat.Request.RequestRegister;
 import com.xeylyne.klikchat.Response.Message;
+import com.xeylyne.klikchat.Utilities.ProgressDialogInstance;
 import com.xeylyne.klikchat.Utilities.RetrofitInstance;
 
 import retrofit2.Call;
@@ -53,38 +56,56 @@ public class RegisterActivity extends AppCompatActivity {
             edConfirmPassword.setError("Please Input Confirm Password");
         } else if (edAddress.getText().toString().isEmpty()){
             edAddress.setError("Please Input Address");
-        }
-
-        if (edPassword.getText().toString().equals(edConfirmPassword.getText().toString())){
-            Register();
-        }
-        if (edPassword.getText().toString().length() <8){
-            edPassword.setError("Password Must Be 8 Or Higher");
+        } else {
+            if (edPassword.getText().toString().equals(edConfirmPassword.getText().toString())){
+                ProgressDialogInstance.createProgressDialoge(RegisterActivity.this, "Progress Register");
+                ProgressDialogInstance.showProgress();
+                Register();
+            }
+            if (edPassword.getText().toString().length() <8){
+                edPassword.setError("Password Must Be 8 Or Higher");
+            }
         }
     }
 
     private void Register() {
-        Call<Message> call = RetrofitInstance.getInstance().Register(edCompanyName.getText().toString(),
+        Call<RequestRegister> call = RetrofitInstance.getInstance().Register(edCompanyName.getText().toString(),
                 edEmail.getText().toString(), edPassword.getText().toString(), edAddress.getText().toString());
-        call.enqueue(new Callback<Message>() {
+        call.enqueue(new Callback<RequestRegister>() {
             @Override
-            public void onResponse(Call<Message> call, Response<Message> response) {
-                Log.d(TAG, "onResponse: " + response.body().getMessage());
-                Log.d(TAG, "onResponse: " + response.body().getCode());
-                if (response.body().getCode() == 200){
-                    Log.d(TAG, "onResponse: " + "Success");
-                    Toast.makeText(RegisterActivity.this, "Register Has Been Successful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                }else {
+            public void onResponse(Call<RequestRegister> call, Response<RequestRegister> response) {
+                if (response.isSuccessful()){
+                    ProgressDialogInstance.dissmisProgress();
+                    switch (response.body().getSuccess().getCode()){
+
+                        case 200:
+                            Log.d(TAG, "onResponse: " + response.body().getUser().getUuid());
+                            Log.d(TAG, "onResponse: " + response.body().getToken());
+
+                            //Save Token To Local
+                            SharedPreferences tokenData = getApplicationContext().getSharedPreferences("token", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = tokenData.edit();
+                            editor.putString("token", "Bearer " + response.body().getToken());
+                            editor.apply();
+
+                            Toast.makeText(RegisterActivity.this, "Register Has Been Successful", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+
+                        case 404:
+                            Log.d(TAG, "onResponse: " + response.body().getSuccess().getMessage());
+                            Toast.makeText(RegisterActivity.this, response.body().getSuccess().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    ProgressDialogInstance.dissmisProgress();
                     Log.d(TAG, "onResponse: " + response.message());
-                    Toast.makeText(RegisterActivity.this, "Check Your Input", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<Message> call, Throwable t) {
+            public void onFailure(Call<RequestRegister> call, Throwable t) {
+                ProgressDialogInstance.dissmisProgress();
                 Log.d(TAG, "onFailure: " + t.getMessage());
                 Toast.makeText(RegisterActivity.this, "", Toast.LENGTH_SHORT).show();
             }

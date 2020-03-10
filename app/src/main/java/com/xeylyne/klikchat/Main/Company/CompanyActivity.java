@@ -1,13 +1,12 @@
 package com.xeylyne.klikchat.Main.Company;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
-
-import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 
 import com.google.android.material.tabs.TabLayout;
 import com.xeylyne.klikchat.Adapter.PagerAdapter;
@@ -19,6 +18,7 @@ public class CompanyActivity extends AppCompatActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
     Toolbar toolbar;
+    private static String TAG = "CompanyActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class CompanyActivity extends AppCompatActivity {
 
         viewPager = findViewById(R.id.fragmentContainer);
         tabLayout = findViewById(R.id.tabLayout);
-        toolbar = findViewById(R.id.toolbarSchedule);
+        toolbar = findViewById(R.id.toolbarCompany);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -38,7 +38,7 @@ public class CompanyActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int i = item.getItemId();
-        if (i == android.R.id.home){
+        if (i == android.R.id.home) {
             this.finish();
         }
         return super.onOptionsItemSelected(item);
@@ -46,12 +46,10 @@ public class CompanyActivity extends AppCompatActivity {
 
     private void initUI() {
         setupViewPager(viewPager);
-        Log.d("asd","asd1");
         viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 tabLayout.getTabAt(position).select();
-                Log.d("asd","asd2");
             }
         });
         setupTabLayout();

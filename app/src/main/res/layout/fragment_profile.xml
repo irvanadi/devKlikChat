@@ -28,11 +28,10 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/edit_text_rounded"
             app:hintEnabled="false"
-            app:layout_constraintTop_toBottomOf="@id/txtCompany"
-            >
+            app:layout_constraintTop_toBottomOf="@id/txtCompany">
 
             <EditText
-                android:id="@+id/edEmail"
+                android:id="@+id/edCompanyName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
@@ -52,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Address"
+            android:text="Company Address"
             app:layout_constraintTop_toBottomOf="@id/txtInputCompany"
             app:layout_constraintStart_toStartOf="parent"/>
 
@@ -66,7 +65,7 @@
             app:layout_constraintTop_toBottomOf="@id/txtAddress">
 
             <EditText
-                android:id="@+id/edAddress"
+                android:id="@+id/edCompanyAddress"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.xeylyne.klikchat">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Main.User.UserActivity"></activity>
+        <activity android:name=".Main.Chart.ChartActivity"></activity>
+        <activity android:name=".Main.DetailTicket.DetailTicketActivity" />
+        <activity android:name=".Main.Ticket.ChatBotActivity" />
+        <activity android:name=".Main.User.EditUserActivity" />
+        <activity android:name=".Main.User.UserActivity" />
         <activity android:name=".Main.Division.DivisionActivity" />
         <activity android:name=".Main.FAQ.FAQActivity" />
         <activity android:name=".Main.Company.CompanyActivity" />
@@ -20,9 +26,21 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="192.168.2.164"
+                    android:scheme="http"
+                    android:port="8080"
+                    android:pathPrefix="/apiaccount/confirmation/"/>
             </intent-filter>
         </activity>
         <activity android:name=".Main.MainActivity" />

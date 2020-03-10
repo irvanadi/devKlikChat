@@ -10,15 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.xeylyne.klikchat.Main.Chart.ChartActivity;
 import com.xeylyne.klikchat.Main.Company.CompanyActivity;
+import com.xeylyne.klikchat.Main.DetailTicket.DetailTicketActivity;
+import com.xeylyne.klikchat.Main.Division.DivisionActivity;
+import com.xeylyne.klikchat.Main.FAQ.FAQActivity;
 import com.xeylyne.klikchat.Main.User.UserActivity;
 import com.xeylyne.klikchat.R;
 import com.xeylyne.klikchat.Main.Ticket.TicketActivity;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class DashboardFragment extends Fragment {
 
 
@@ -36,7 +36,7 @@ public class DashboardFragment extends Fragment {
         view.findViewById(R.id.btnShowDetail).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), TicketActivity.class);
+                Intent intent = new Intent(getContext(), DetailTicketActivity.class);
                 startActivity(intent);
             }
         });
@@ -49,10 +49,42 @@ public class DashboardFragment extends Fragment {
             }
         });
 
+        view.findViewById(R.id.btnDivision).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), DivisionActivity.class);
+                startActivity(intent);
+            }
+        });
+
         view.findViewById(R.id.btnUser).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), UserActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        view.findViewById(R.id.btnTicket).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), TicketActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        view.findViewById(R.id.btnFAQ).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), FAQActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        view.findViewById(R.id.btnShowChart).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), ChartActivity.class);
                 startActivity(intent);
             }
         });
