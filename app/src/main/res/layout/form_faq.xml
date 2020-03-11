@@ -6,12 +6,20 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
+    <TextView
+        android:id="@+id/tvCommand"
+        android:text="Command"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtInputCommand"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/edit_text_rounded"
         app:hintEnabled="false">
@@ -32,12 +40,20 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/tvFeedBack"
+        android:text="FeedBack"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtInputFeedback"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/edit_text_rounded"
         app:hintEnabled="false">

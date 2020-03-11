@@ -15,18 +15,28 @@
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <TextView
+        android:id="@+id/tvname"
+        android:text="Name"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarEditUser"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtInputName"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/edit_text_rounded"
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarEditUser">
+        app:layout_constraintTop_toBottomOf="@id/tvname">
 
         <EditText
             android:id="@+id/edName"
@@ -44,18 +54,28 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/tvphonenumber"
+        android:text="Phone Number"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInputName"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtInputPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/edit_text_rounded"
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtInputName">
+        app:layout_constraintTop_toBottomOf="@id/tvphonenumber">
 
         <EditText
             android:id="@+id/edPhoneNumber"
@@ -73,18 +93,28 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/tvemail"
+        android:text="Email"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInputPhoneNumber"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtInputEmail"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/edit_text_rounded"
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtInputPhoneNumber">
+        app:layout_constraintTop_toBottomOf="@id/tvemail">
 
         <EditText
             android:id="@+id/edEmail"
@@ -102,18 +132,28 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/tvaddress"
+        android:text="Address"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInputEmail"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtInputAddress"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/edit_text_rounded"
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtInputEmail">
+        app:layout_constraintTop_toBottomOf="@id/tvaddress">
 
         <EditText
             android:id="@+id/edAddress"
@@ -132,50 +172,42 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/tvDivision"
+        android:text="Division"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInputAddress"/>
     <Spinner
         android:id="@+id/spinnerDivision"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
-        app:layout_constraintTop_toBottomOf="@id/txtInputAddress" />
+        app:layout_constraintTop_toBottomOf="@id/tvDivision" />
 
+    <TextView
+        android:id="@+id/tvUserType"
+        android:text="User Type"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerDivision"/>
     <Spinner
         android:id="@+id/spinnerUserType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
         android:entries="@array/user_type"
-        app:layout_constraintTop_toBottomOf="@id/spinnerDivision" />
-
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="Save"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@id/btnDelete"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinnerUserType" />
-
-    <Button
-        android:id="@+id/btnDelete"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/red"
-        android:text="Delete"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@id/btnSave"
-        app:layout_constraintTop_toBottomOf="@id/spinnerUserType" />
+        app:layout_constraintTop_toBottomOf="@id/tvUserType" />
 
     <Button
         android:id="@+id/btnSendEmail"
@@ -185,8 +217,8 @@
         android:background="@color/blue"
         android:textColor="@android:color/white"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="@id/btnSave"
-        app:layout_constraintEnd_toEndOf="@id/btnDelete"
-        app:layout_constraintTop_toBottomOf="@id/btnSave" />
+        app:layout_constraintStart_toStartOf="@id/spinnerUserType"
+        app:layout_constraintEnd_toEndOf="@id/spinnerUserType"
+        app:layout_constraintTop_toBottomOf="@id/spinnerUserType" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
