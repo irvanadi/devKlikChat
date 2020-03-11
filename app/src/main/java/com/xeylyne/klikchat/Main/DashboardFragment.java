@@ -31,7 +31,89 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+
+        view.findViewById(R.id.imgNewTicket).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DetailTicketActivity.class);
+                intent.putExtra("new","new");
+                startActivity(intent);
+            }
+        });
+
+        view.findViewById(R.id.txtCountNewTicket).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DetailTicketActivity.class);
+                intent.putExtra("new","new");
+                startActivity(intent);
+            }
+        });
+
+        view.findViewById(R.id.txtNewTicket).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DetailTicketActivity.class);
+                intent.putExtra("new","new");
+                startActivity(intent);
+            }
+        });
+
+        view.findViewById(R.id.imgOnProgress).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DetailTicketActivity.class);
+                intent.putExtra("new","new");
+                startActivity(intent);
+            }
+        });
+
+        view.findViewById(R.id.txtCountOnProgress).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DetailTicketActivity.class);
+                intent.putExtra("new","new");
+                startActivity(intent);
+            }
+        });
+
+        view.findViewById(R.id.txtOnProgress).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DetailTicketActivity.class);
+                intent.putExtra("new","new");
+                startActivity(intent);
+            }
+        });
+
+        view.findViewById(R.id.imgTicketDone).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DetailTicketActivity.class);
+                intent.putExtra("new","new");
+                startActivity(intent);
+            }
+        });
+
+        view.findViewById(R.id.txtCountTicketDone).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DetailTicketActivity.class);
+                intent.putExtra("new","new");
+                startActivity(intent);
+            }
+        });
+
+        view.findViewById(R.id.txtTicketDone).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DetailTicketActivity.class);
+                intent.putExtra("new","new");
+                startActivity(intent);
+            }
+        });
 
         view.findViewById(R.id.btnCompany).setOnClickListener(new View.OnClickListener() {
             @Override
