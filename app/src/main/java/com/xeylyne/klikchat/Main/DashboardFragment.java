@@ -33,14 +33,6 @@ public class DashboardFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        view.findViewById(R.id.btnShowDetail).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), DetailTicketActivity.class);
-                startActivity(intent);
-            }
-        });
-
         view.findViewById(R.id.btnCompany).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitInstance {
 
-    public static String URL = "http://192.168.2.158:8080/api/";
+    public static String URL = "http://192.168.43.9:8080/api/";
 
     public static Retrofit setInstance(){
         return new Retrofit.Builder().baseUrl(URL).addConverterFactory(GsonConverterFactory.create()).build();

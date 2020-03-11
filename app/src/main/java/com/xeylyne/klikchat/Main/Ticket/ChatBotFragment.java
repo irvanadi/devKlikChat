@@ -2,13 +2,8 @@ package com.xeylyne.klikchat.Main.Ticket;
 
 
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +13,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.xeylyne.klikchat.Adapter.ChatBotAdapter;
 import com.xeylyne.klikchat.R;
@@ -25,13 +23,11 @@ import com.xeylyne.klikchat.Request.RequestChatBot;
 import com.xeylyne.klikchat.Request.RequestDivision;
 import com.xeylyne.klikchat.Request.RequestInsertChatBot;
 import com.xeylyne.klikchat.Response.ListSpinner;
-import com.xeylyne.klikchat.Response.ResponseChatBot;
 import com.xeylyne.klikchat.Response.ResponseDivision;
 import com.xeylyne.klikchat.Utilities.ProgressDialogInstance;
 import com.xeylyne.klikchat.Utilities.RecyclerViewInstance;
 import com.xeylyne.klikchat.Utilities.RetrofitInstance;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +45,7 @@ public class ChatBotFragment extends Fragment {
     public static ChatBotFragment newInstance() {
         return new ChatBotFragment();
     }
+
     String parent, name;
     RecyclerView recyclerView;
     List<RequestChatBot> results = new ArrayList<>();
@@ -96,9 +93,9 @@ public class ChatBotFragment extends Fragment {
 
         alertDialog.setTitle("Chat Bot");
 
-        LayoutInflater layoutInflater = ((TicketActivity)getContext()).getLayoutInflater();
+        LayoutInflater layoutInflater = ((TicketActivity) getContext()).getLayoutInflater();
         View view = layoutInflater.inflate(R.layout.form_chatbot, null);
-        ProgressDialogInstance.createProgressDialoge(getContext(),"Loading Data").show();
+        ProgressDialogInstance.createProgressDialoge(getContext(), "Loading Data").show();
         edName = view.findViewById(R.id.edName);
         edResponse = view.findViewById(R.id.edResponse);
         spinnerDivision = view.findViewById(R.id.spinnerDivision);
@@ -106,7 +103,7 @@ public class ChatBotFragment extends Fragment {
         SharedPreferences retrieveToken = getContext().getSharedPreferences("token", MODE_PRIVATE);
         String Token = retrieveToken.getString("token", "isNull");
 
-        Call<RequestDivision> call = RetrofitInstance.getInstance().getDivision(Token,"100","ASC");
+        Call<RequestDivision> call = RetrofitInstance.getInstance().getDivision(Token, "100", "ASC");
         call.enqueue(new Callback<RequestDivision>() {
             @Override
             public void onResponse(Call<RequestDivision> call, Response<RequestDivision> response) {
@@ -116,10 +113,10 @@ public class ChatBotFragment extends Fragment {
                         case 200:
                             resultsDivision = response.body().getDivision().getData();
                             listSpinner = new ArrayList<>();
-                            for (int i = 0; i < resultsDivision.size(); i ++){
+                            for (int i = 0; i < resultsDivision.size(); i++) {
                                 listSpinner.add(new ListSpinner(resultsDivision.get(i).getId(), resultsDivision.get(i).getName()));
                             }
-                            ArrayAdapter<ListSpinner> adapter = new ArrayAdapter<ListSpinner>(getContext(),  android.R.layout.simple_spinner_dropdown_item, listSpinner);
+                            ArrayAdapter<ListSpinner> adapter = new ArrayAdapter<ListSpinner>(getContext(), android.R.layout.simple_spinner_dropdown_item, listSpinner);
                             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                             spinnerDivision.setAdapter(adapter);
                             break;
@@ -127,8 +124,8 @@ public class ChatBotFragment extends Fragment {
                         default:
                             List<String> listSpinner2 = new ArrayList<>();
                             listSpinner2.add("There Is No Division Data");
-                            ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getContext(),  android.R.layout.simple_spinner_dropdown_item, listSpinner2);
-                            adapter2.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item);
+                            ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, listSpinner2);
+                            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                             spinnerDivision.setAdapter(adapter2);
                             break;
 
@@ -153,40 +150,40 @@ public class ChatBotFragment extends Fragment {
         view.findViewById(R.id.btnSave).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ProgressDialogInstance.createProgressDialoge(getContext(), "Saving Data").show();
-                SharedPreferences retrieveToken = getContext().getSharedPreferences("token", MODE_PRIVATE);
-                String Token = retrieveToken.getString("token", "isNull");
-
-                if (listSpinner.isEmpty()){
-                    Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
-                }
-                String division_id = listSpinner.get((int) spinnerDivision.getSelectedItemId()).getId();
-                Call<RequestInsertChatBot> call = RetrofitInstance.getInstance().insertChatBot(Token, edName.getText().toString(), edResponse.getText().toString(),
-                        parent, division_id, "1");
-                call.enqueue(new Callback<RequestInsertChatBot>() {
-                    @Override
-                    public void onResponse(Call<RequestInsertChatBot> call, Response<RequestInsertChatBot> response) {
-                        if (response.isSuccessful()) {
-                            ProgressDialogInstance.dissmisProgress();
-                            switch (response.body().getSuccess().getCode()) {
-                                default:
-                                    Toast.makeText(getContext(), response.body().getSuccess().getMessage(), Toast.LENGTH_SHORT).show();
-                                    dialog.dismiss();
-                                    LoadData();
-                                    break;
+                if (!listSpinner.isEmpty()) {
+                    ProgressDialogInstance.createProgressDialoge(getContext(), "Saving Data").show();
+                    SharedPreferences retrieveToken = getContext().getSharedPreferences("token", MODE_PRIVATE);
+                    String Token = retrieveToken.getString("token", "isNull");
+                    String division_id = listSpinner.get((int) spinnerDivision.getSelectedItemId()).getId();
+                    Call<RequestInsertChatBot> call = RetrofitInstance.getInstance().insertChatBot(Token, edName.getText().toString(), edResponse.getText().toString(),
+                            parent, division_id, "1");
+                    call.enqueue(new Callback<RequestInsertChatBot>() {
+                        @Override
+                        public void onResponse(Call<RequestInsertChatBot> call, Response<RequestInsertChatBot> response) {
+                            if (response.isSuccessful()) {
+                                ProgressDialogInstance.dissmisProgress();
+                                switch (response.body().getSuccess().getCode()) {
+                                    default:
+                                        Toast.makeText(getContext(), response.body().getSuccess().getMessage(), Toast.LENGTH_SHORT).show();
+                                        dialog.dismiss();
+                                        LoadData();
+                                        break;
+                                }
+                            } else {
+                                ProgressDialogInstance.dissmisProgress();
+                                Log.d("Division", "onResponse: " + response.message());
                             }
-                        } else {
-                            ProgressDialogInstance.dissmisProgress();
-                            Log.d("Division", "onResponse: " + response.message());
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<RequestInsertChatBot> call, Throwable t) {
-                        ProgressDialogInstance.dissmisProgress();
-                        Log.d("Division", "onFailure: " + t.getMessage());
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<RequestInsertChatBot> call, Throwable t) {
+                            ProgressDialogInstance.dissmisProgress();
+                            Log.d("Division", "onFailure: " + t.getMessage());
+                        }
+                    });
+                } else {
+                    Toast.makeText(getContext(), "Division is Empty", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -204,7 +201,7 @@ public class ChatBotFragment extends Fragment {
         call.enqueue(new Callback<List<RequestChatBot>>() {
             @Override
             public void onResponse(Call<List<RequestChatBot>> call, Response<List<RequestChatBot>> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
                     ProgressDialogInstance.dissmisProgress();
                     results = response.body();
                     chatBotAdapter = new ChatBotAdapter(getContext(), results);

@@ -1,7 +1,11 @@
 package com.xeylyne.klikchat.Main.Company;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +15,15 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 import com.xeylyne.klikchat.Adapter.PagerAdapter;
 import com.xeylyne.klikchat.R;
+import com.xeylyne.klikchat.Request.RequestCompany;
+import com.xeylyne.klikchat.Utilities.ProgressDialogInstance;
+import com.xeylyne.klikchat.Utilities.RetrofitInstance;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class CompanyActivity extends AppCompatActivity {
 
@@ -19,6 +32,7 @@ public class CompanyActivity extends AppCompatActivity {
     TabLayout tabLayout;
     Toolbar toolbar;
     private static String TAG = "CompanyActivity";
+    String companyName, companyAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +46,7 @@ public class CompanyActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         initUI();
     }
 
@@ -83,5 +98,7 @@ public class CompanyActivity extends AppCompatActivity {
         pagerAdapter.addFragment(OfficialAccountFragment.newInstance());
         viewPager.setAdapter(pagerAdapter);
     }
+
+
 
 }

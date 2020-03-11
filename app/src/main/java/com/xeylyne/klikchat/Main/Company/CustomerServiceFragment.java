@@ -54,6 +54,7 @@ public class CustomerServiceFragment extends Fragment {
     private Bitmap selectedImage;
     private ImageView imgPick;
 
+
     private static int GALLERY_REQUEST = 10;
 
 

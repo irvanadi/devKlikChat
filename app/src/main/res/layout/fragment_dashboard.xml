@@ -18,7 +18,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardTProgress"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="140dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 app:cardCornerRadius="10dp"
@@ -73,6 +73,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:textColor="@android:color/black"
+                        android:gravity="center"
                         android:text="Ticket On \nProgress"
                         app:layout_constraintEnd_toEndOf="@id/imgOnProgress"
                         app:layout_constraintStart_toStartOf="@id/imgOnProgress"
@@ -143,19 +144,6 @@
                         app:layout_constraintEnd_toEndOf="@id/imgTicketDone"
                         app:layout_constraintStart_toStartOf="@id/imgTicketDone"
                         app:layout_constraintTop_toBottomOf="@id/txtCountTicketDone" />
-
-                    <Button
-                        android:id="@+id/btnShowDetail"
-                        android:layout_width="match_parent"
-                        android:layout_height="32dp"
-                        android:background="@drawable/btnrounded"
-                        android:layout_marginEnd="32dp"
-                        android:layout_marginStart="32dp"
-                        android:text="Show Detail"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        android:backgroundTint="@color/colorPrimaryDark"
-                        app:layout_constraintTop_toBottomOf="@id/txtOnProgress"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
