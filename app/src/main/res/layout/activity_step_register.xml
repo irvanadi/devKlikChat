@@ -6,4 +6,64 @@
     android:layout_height="match_parent"
     tools:context=".StepRegisterActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarCompany"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@android:color/white"
+        android:background="@color/colorPrimaryDark"
+        app:title="Company Profile" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarCompanyProfile"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarCompany">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabMaxWidth="0dp"
+            app:tabMode="fixed"
+            app:tabTextColor="@android:color/white">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 1" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabCustomerService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 2" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabOfficialAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 3" />
+
+
+        </com.google.android.material.tabs.TabLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appbarCompanyProfile" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

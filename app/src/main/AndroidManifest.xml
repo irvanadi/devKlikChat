@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Main.Chart.ChartActivity"></activity>
+        <activity android:name=".StepRegisterActivity" />
+        <activity android:name=".Main.Chart.ChartActivity" />
         <activity android:name=".Main.DetailTicket.DetailTicketActivity" />
         <activity android:name=".Main.Ticket.ChatBotActivity" />
         <activity android:name=".Main.User.EditUserActivity" />
@@ -26,21 +27,22 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="192.168.2.164"
-                    android:scheme="http"
+                    android:pathPrefix="/apiaccount/confirmation/"
                     android:port="8080"
-                    android:pathPrefix="/apiaccount/confirmation/"/>
+                    android:scheme="http" />
             </intent-filter>
         </activity>
         <activity android:name=".Main.MainActivity" />

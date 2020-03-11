@@ -152,32 +152,6 @@
         app:layout_constraintTop_toBottomOf="@id/spinnerDivision" />
 
     <Button
-        android:id="@+id/btnSave"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="Save"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@id/btnDelete"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinnerUserType" />
-
-    <Button
-        android:id="@+id/btnDelete"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/red"
-        android:text="Delete"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@id/btnSave"
-        app:layout_constraintTop_toBottomOf="@id/spinnerUserType" />
-
-    <Button
         android:id="@+id/btnSendEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -185,8 +159,8 @@
         android:background="@color/blue"
         android:textColor="@android:color/white"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="@id/btnSave"
-        app:layout_constraintEnd_toEndOf="@id/btnDelete"
-        app:layout_constraintTop_toBottomOf="@id/btnSave" />
+        app:layout_constraintStart_toStartOf="@id/spinnerUserType"
+        app:layout_constraintEnd_toEndOf="@id/spinnerUserType"
+        app:layout_constraintTop_toBottomOf="@id/spinnerUserType" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
